@@ -10,4 +10,9 @@ class Element
   def visible?
     find.visible?
   end
+
+  def isVisible
+    unless visible?
+  end
+
 end
