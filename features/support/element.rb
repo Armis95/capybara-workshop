@@ -16,6 +16,12 @@ class Element
       raise "element not visible"
     end
   end
+  
+  def notVisible
+    if visible?
+      raise "element is still visible"
+    end 
+  end 
 
   def click
     find.click
@@ -23,9 +29,5 @@ class Element
 
   def send_keys(value)
     find.send_keys value
-  end
-
-  def clear
-    find.native.clear
   end
 end
