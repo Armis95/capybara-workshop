@@ -8,16 +8,37 @@ class LoginTest
     @pages.page_home.isVisible
   end
 
-  def validate_try_now
+  def open_try_now
     @pages.page_home.openTryNow
+  end
+
+  def close_try_now
     @pages.page_home.closeTryNow
   end
 
-  def submit_contact_form()
-    user = Users.contact_form_user
-    @pages.page_home.enterName(user.name)
-    @pages.page_home.enterEmail(user.email)
-    @pages.page_home.enterMessage(user.message)
-    sleep(3)
+  def fill_signup_form()
+    user = Users.signup_form
+    @pages.page_home.enterSignupEmail(user.email)
+    @pages.page_home.enterSignupPassword1(user.password1)
+    @pages.page_home.enterSignupPassword2(user.password2)
+    @pages.page_home.enterSignupProjectName(user.projectName)
+  end
+
+  def open_sign_in 
+    @pages.page_home.openLogin
+  end
+  
+  def fill_login_form()
+    user = Users.login_form
+    @pages.page_home.enterLoginEmail(user.email)
+    @pages.page_home.enterLoginPassword(user.password1)
+  end 
+
+  def click_login 
+    @pages.page_home.clickLogin
+  end
+
+  def validate_login_error
+    @pages.page_home.validateLoginError
   end
 end

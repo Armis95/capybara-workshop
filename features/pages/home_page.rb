@@ -1,46 +1,77 @@
 class HomePage < BasePage
-    attr_accessor :button_start
-  def initialize
-    @button_start = Element.new(:css, '#start_button')
-    @form_sign_up = Element.new(:css, '#signup')
-    @button_close_try_now = Element.new(:css, '#signup .closecross')
-    @input_name_contact_us = Element.new(:css, '#name')
-    @input_email_contact_us = Element.new(:css, '#email')
-    @input_message_contact_us = Element.new(:css, '#contactus-message')
-  end
+  attr_accessor :button_start
+def initialize
+  @button_start = Element.new(:css, '#start_button')
+  @form_sign_up = Element.new(:css, '#signup')
+  @button_close_try_now = Element.new(:css, '#signup .closecross')
 
-  def isVisible
-    @button_start.isVisible
-    @input_name_contact_us.isVisible
-  end
+  @signup_email = Element.new(:css, '#signup input[name="login"]')
+  @signup_pw1 = Element.new(:css, '#signup input[name="password1"]')
+  @signup_pw2 = Element.new(:css, '#signup input[name="password2"]')
+  @signup_projectName = Element.new(:css, '#signup input[name = "project_name"]')
+  
+  @login = Element.new(:css, '#login-b')
+  @loginField = Element.new(:css, '#login')
+  @loginEmail = Element.new(:css, '#login input[name="login"]')
+  @loginPassword = Element.new(:css, '#login input[name="password"]')
+  @loginButton = Element.new(:css, '#login .button')
+  @loginErrorMessage = Element.new(:css, '#login form[action="/login"] .alert')
+end
 
-  def load
-    visit('/legacy')
-  end
+def isVisible
+  @button_start.isVisible
+end
 
-  def openTryNow
-    @button_start.click
-    @form_sign_up.isVisible
-    @button_close_try_now.isVisible
-  end
+def load
+  visit('/legacy')
+end
 
-  def closeTryNow
-    @button_close_try_now.click
-  end
+def openTryNow
+  @button_start.click
+  @form_sign_up.isVisible
+  @button_close_try_now.isVisible
+end
 
-  def enterName(name)
-    @input_name_contact_us.send_keys(name)
-  end
+def closeTryNow
+  @button_close_try_now.click
+  @button_close_try_now.notVisible
+end
 
-  def clearName
-    @input_name_contact_us.clear
-  end
+def enterSignupEmail(email)
+  @signup_email.send_keys(email)
+end
 
-    def enterEmail(email)
-      @input_email_contact_us.send_keys(email)
-    end
+def enterSignupPassword1(password1)
+  @signup_pw1.send_keys(password1)
+end
 
-  def enterMessage(message)
-    @input_message_contact_us.send_keys(message)
-  end
+def enterSignupPassword2(password2)
+  @signup_pw2.send_keys(password2)
+end
+
+def enterSignupProjectName(projectName)
+  @signup_projectName.send_keys(projectName)
+end
+
+def openLogin 
+  @login.click
+  @loginField.isVisible
+end
+
+def enterLoginEmail(email)
+  @loginEmail.send_keys(email)
+end
+
+def enterLoginPassword(password)
+  @loginPassword.send_keys(password)
+end
+
+def clickLogin
+  @loginButton.click
+end
+
+def validateLoginError
+  @loginErrorMessage.visible?
+end 
+
 end
