@@ -71,7 +71,7 @@ def clickLogin
 end
 
 def validateLoginError
-  @loginErrorMessage.visible?
+  @loginErrorMessage.isVisible
 end 
 
 end
