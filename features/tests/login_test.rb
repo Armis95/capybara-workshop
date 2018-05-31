@@ -17,10 +17,13 @@ class LoginTest
   end
 
   def fill_signup_form()
-    user = Users.signup_form
+    user = Users.signup_email
     @pages.page_home.enterSignupEmail(user.email)
+    user = Users.signup_password1
     @pages.page_home.enterSignupPassword1(user.password1)
+    user = Users.signup_password2
     @pages.page_home.enterSignupPassword2(user.password2)
+    user = Users.signup_projectName
     @pages.page_home.enterSignupProjectName(user.projectName)
   end
 
@@ -29,8 +32,9 @@ class LoginTest
   end
   
   def fill_login_form()
-    user = Users.login_form
+    user = Users.login_email
     @pages.page_home.enterLoginEmail(user.email)
+    user = Users.login_password    
     @pages.page_home.enterLoginPassword(user.password1)
   end 
 
