@@ -11,17 +11,12 @@ class Element
     find.visible?
   end
 
-  def isVisible
-    unless visible?
-      raise "element not visible"
-    end
-  end
-  
-  def notVisible
-    if visible?
-      raise "element is still visible"
-    end 
-  end 
+  # def isVisible
+  #   if visible?
+  #   else
+  #     raise "element is  visible"
+  #   end
+  #end
 
   def click
     find.click
