@@ -10,9 +10,6 @@ require 'base64'
 require 'chromedriver/helper'
 
 
-SitePrism.configure do |config|
-  config.use_implicit_waits = true
-end
 Capybara.app_host = 'http://www.discordapp.com'
 Capybara.save_path = 'report/'
 Capybara::Screenshot.autosave_on_failure = false
