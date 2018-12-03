@@ -1,6 +1,6 @@
 class Pages
-  def page_home
-    @page_home ||= HomePage.new
-    @page_home
+  def login_page
+    @login_page ||= LoginPage.new
+    @login_page
   end
 end
